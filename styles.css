@@ -1,0 +1,652 @@
+/* ================================================
+   ADVENT CALENDAR - MAIN STYLESHEET
+   ================================================ */
+
+/* Basic Styles */
+body {
+    font-family: 'Vidaloka', serif;
+    background: linear-gradient(135deg, #0B3D2E 0%);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+h1 {
+    color: #fff;
+    font-size: 3em;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.8s ease-in;
+    text-align: center;
+}
+
+.header-info {
+    color: #fff;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    text-align: center;
+    animation: slideDown 0.8s ease-out;
+    padding: 0 10px;
+}
+
+.header-info p {
+    margin: 0;
+    padding: 0;
+}
+
+.calendar-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 100px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+
+/* Calendar Grid */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columns */
+    gap: 150px;
+    max-width: 900px;
+    width: 100%;
+    justify-items: center;
+}
+
+/* Each Door (Animation Container) */
+.calendar-door {
+    background-color: transparent;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    /* Makes doors square */
+    perspective: 1000px;
+    /* For the 3D effect */
+    cursor: pointer;
+    border-radius: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+    touch-action: manipulation;
+    /* Prevents double-tap zoom on mobile */
+}
+
+.calendar-door:active {
+    transform: translateY(-5px);
+}
+
+/* Better touch targets for mobile */
+@media (hover: none) and (pointer: coarse) {
+    .calendar-door {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .calendar-door.unlocked:not(.open):active .door-inner {
+        transform: scale(0.95);
+    }
+}
+
+/* The inner part that flips */
+.door-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Front and Back of the door */
+.door-front,
+.door-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    /* Hides the back side when flipping */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Front (The number) */
+.door-front {
+    background-image: url('img/xmas_template_closed.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 2.5em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    position: relative;
+}
+
+.door-front span {
+    display: block;
+    line-height: 1;
+}
+
+.door-front .lock-icon {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    line-height: 1;
+}
+
+/* Back (The content) */
+.door-back {
+    background-image: url('img/xmas_template_opened.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #333;
+    transform: rotateY(180deg);
+    /* Starts flipped over */
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+}
+
+/* The "open" state */
+.calendar-door.open .door-inner {
+    transform: rotateY(180deg);
+    /* Flips the door */
+}
+
+/* The "locked" state */
+.calendar-door.locked {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.calendar-door.locked .door-front {
+    background-image: url('img/xmas_template_closed.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+    filter: grayscale(50%) brightness(0.7);
+}
+
+.calendar-door.locked .lock-icon {
+    opacity: 1;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Little hover effect for unlocked doors */
+.calendar-door.unlocked:not(.open):hover .door-inner {
+    transform: scale(1.05) rotateX(5deg);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.calendar-door.shake {
+    animation: shake 0.5s 1;
+}
+
+.calendar-door.bounce {
+    animation: bounce 0.6s ease-out 1;
+}
+
+/* Door entrance animation */
+.door-entrance {
+    animation: doorEntrance 0.5s ease-out forwards;
+}
+
+@keyframes doorEntrance {
+    from {
+        opacity: 0;
+        transform: scale(0.5) rotateY(90deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotateY(0deg);
+    }
+}
+
+/* Stats Panel */
+.stats-panel {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    min-width: 300px;
+    animation: slideDown 0.8s ease-out 0.3s backwards;
+}
+
+.stat-item {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+.stat-value {
+    font-weight: bold;
+    color: #ffeb3b;
+    font-size: 1.3em;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: #F7EEDB;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 85vh;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 20px;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: scale(0.7) translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2em;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.3s ease;
+    z-index: 1001;
+    padding: 5px;
+    min-width: 40px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+.modal-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 10px;
+}
+
+.modal-body img {
+    max-width: 100%;
+    max-height: 400px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.modal-body p {
+    font-size: 1.2em;
+    font-style: italic;
+    color: #666;
+    margin: 0;
+    padding: 15px;
+    line-height: 1.6;
+    word-wrap: break-word;
+}
+
+/* Responsive adjustments for tablets */
+@media (max-width: 1024px) {
+    .calendar-container {
+        padding: 50px;
+    }
+
+    .calendar-grid {
+        gap: 80px;
+    }
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    body {
+        padding: 5px;
+        justify-content: flex-start;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+
+    .header-info {
+        font-size: 0.9em;
+        margin-bottom: 15px;
+    }
+
+    .calendar-container {
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .calendar-grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 columns */
+        gap: 20px;
+    }
+
+    .door-front {
+        font-size: 2em;
+    }
+
+    .door-back {
+        font-size: 2.5em;
+    }
+
+    .stats-panel {
+        margin-top: 20px;
+        padding: 15px;
+        min-width: auto;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .stat-item {
+        font-size: 0.95em;
+        margin: 8px 0;
+    }
+
+    .stat-value {
+        font-size: 1.2em;
+    }
+
+    .modal-content {
+        padding: 25px 20px;
+        max-height: 90vh;
+        width: 95%;
+        border-radius: 15px;
+    }
+
+    .modal-close {
+        top: 10px;
+        right: 15px;
+        font-size: 1.8em;
+        min-width: 35px;
+        min-height: 35px;
+    }
+
+    .modal-body {
+        gap: 15px;
+        padding-top: 5px;
+    }
+
+    .modal-body img {
+        max-height: 300px;
+    }
+
+    .modal-body p {
+        font-size: 1em;
+        padding: 10px;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        margin-bottom: 5px;
+    }
+
+    .header-info {
+        font-size: 0.85em;
+        margin-bottom: 10px;
+    }
+
+    .calendar-container {
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .calendar-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns */
+        gap: 15px;
+    }
+
+    .door-front {
+        font-size: 1.8em;
+    }
+
+    .door-back {
+        font-size: 2em;
+    }
+
+    .door-front .lock-icon {
+        font-size: 1.2em;
+    }
+
+    .stats-panel {
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 8px;
+    }
+
+    .stat-item {
+        font-size: 0.85em;
+        margin: 6px 0;
+    }
+
+    .stat-value {
+        font-size: 1.1em;
+    }
+
+    .modal-content {
+        padding: 20px 15px;
+        max-height: 92vh;
+        width: 95%;
+        border-radius: 12px;
+        margin: 10px;
+    }
+
+    .modal-close {
+        top: 8px;
+        right: 12px;
+        font-size: 1.6em;
+        min-width: 32px;
+        min-height: 32px;
+    }
+
+    .modal-body {
+        gap: 12px;
+    }
+
+    .modal-body img {
+        max-height: 250px;
+    }
+
+    .modal-body p {
+        font-size: 0.95em;
+        padding: 8px;
+        line-height: 1.5;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+    h1 {
+        font-size: 1.3em;
+    }
+
+    .calendar-grid {
+        gap: 12px;
+    }
+
+    .door-front {
+        font-size: 1.5em;
+    }
+
+    .modal-content {
+        padding: 15px 12px;
+    }
+
+    .modal-body img {
+        max-height: 200px;
+    }
+
+    .modal-body p {
+        font-size: 0.9em;
+    }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerdi's Advent Calendar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vidaloka&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <h1>🎄 Gerdi's Advent Calendar 🎄</h1>
+    <div class="header-info">
+        <p id="dateDisplay"></p>
+    </div>
+
+    <div class="calendar-container">
+        <div class="calendar-grid" id="calendarGrid"></div>
+    </div>
+
+    <div class="stats-panel">
+        <div class="stat-item">Days Unlocked: <span class="stat-value" id="daysUnlocked">0</span></div>
+        <div class="stat-item">Days Opened: <span class="stat-value" id="daysOpened">0</span></div>
+        <div class="stat-item">Progress: <span class="stat-value" id="progressPercentage">0%</span></div>
+    </div>
+
+    <!-- Modal for displaying door content -->
+    <div id="doorModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-body">
+                <img id="modalImage" src="" alt="Door surprise">
+                <p id="modalQuote"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="calendar.js"></script>
+
+</body>
+
+</html>
