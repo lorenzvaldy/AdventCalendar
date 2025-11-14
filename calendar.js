@@ -23,9 +23,9 @@ class AdventCalendar {
     getCalendarData() {
         return [
             { day: 1, image: 'img/orangeade.png', quote: 'When Life Gives You Oranges, Make it "Orange"ade.' },
-            { day: 2, image: 'https://placehold.co/150x100/7F11E8/white?text=Day+2', quote: 'Walnuts' },
-            { day: 3, image: 'https://placehold.co/150x100/11AEE8/white?text=Day+3', quote: 'indomie' },
-            { day: 4, image: 'https://placehold.co/150x100/11E87F/white?text=Day+4', quote: 'Taschenwärmer' },
+            { day: 2, image: 'img/warm_noodle.png', quote: 'One kind word can warm three winter months' },
+            { day: 3, image: 'img/nuts.png', quote: 'Have nuts and be nuts!' },
+            { day: 4, image: 'img/hug.png', quote: 'Sometimes, all you need is just a warm hug' },
             { day: 5, image: 'https://placehold.co/150x100/E87F11/white?text=Day+5', quote: 'Five minutes early...' },
             { day: 6, image: 'https://placehold.co/150x100/E8112A/white?text=Day+6', quote: 'Six numbers for the lottery.' },
             { day: 7, image: 'https://placehold.co/150x100/E8DA11/white?text=Day+7', quote: 'Over the seven bridges.' },
@@ -82,7 +82,7 @@ class AdventCalendar {
 
         // --- FOR TESTING ---
         // Uncomment to test with a specific date
-        this.setTestDate(15, 12); // Simulate December 15th
+        // this.setTestDate(15, 12); // Simulate December 15th
         // ---------------------
 
         this.updateDateDisplay();
