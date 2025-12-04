@@ -26,12 +26,12 @@ class AdventCalendar {
             { day: 2, image: 'img/warm_noodle.png', quote: 'One kind word can warm three winter months' },
             { day: 3, image: 'img/nuts.png', quote: 'Have nuts and be nuts!' },
             { day: 4, image: 'img/hug.png', quote: 'Sometimes, all you need is just a warm hug' },
-            { day: 5, image: 'https://placehold.co/150x100/E87F11/white?text=Day+5', quote: 'Five minutes early...' },
-            { day: 6, image: 'https://placehold.co/150x100/E8112A/white?text=Day+6', quote: 'Six numbers for the lottery.' },
-            { day: 7, image: 'https://placehold.co/150x100/E8DA11/white?text=Day+7', quote: 'Over the seven bridges.' },
-            { day: 8, image: 'https://placehold.co/150x100/5211E8/white?text=Day+8', quote: 'Watch your thoughts.' },
-            { day: 9, image: 'https://placehold.co/150x100/11E8B6/white?text=Day+9', quote: 'Cats have nine lives.' },
-            { day: 10, image: 'https://placehold.co/150x100/E8117F/white?text=Day+10', quote: 'Ten out of ten!' },
+            { day: 5, image: 'img/cracker.png', quote: 'The journey of a thousand miles begins with a single cracker.' },
+            { day: 6, image: 'img/bubble.png', quote: 'One bubble a day keep the stress away.' },
+            { day: 7, image: 'img/corn.png', quote: 'Be like corn, versatile and delicious.' },
+            { day: 8, image: 'img/notes.png', quote: 'Memory fails; the note persists.' },
+            { day: 9, image: 'img/coffee.png', quote: 'Behind every successful person is a substantial amount of coffee.' },
+            { day: 10, image: 'img/door.png', quote: 'An opened door doesn\'t mean you must get in, you can take a look and just close it' },
             { day: 11, image: 'https://placehold.co/150x100/7F11E8/white?text=Day+11', quote: 'Eleven friends you must be.' },
             { day: 12, image: 'https://placehold.co/150x100/11AEE8/white?text=Day+12', quote: 'Twelve o-clock high.' },
             { day: 13, image: 'https://placehold.co/150x100/11E87F/white?text=Day+13', quote: 'Friday the 13th - a lucky day!' },
@@ -82,7 +82,7 @@ class AdventCalendar {
 
         // --- FOR TESTING ---
         // Uncomment to test with a specific date
-        // this.setTestDate(15, 12); // Simulate December 15th
+        //this.setTestDate(15, 12); // Simulate December 15th
         // ---------------------
 
         this.updateDateDisplay();
