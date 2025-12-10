@@ -32,7 +32,7 @@ class AdventCalendar {
             { day: 8, image: 'img/notes.png', quote: 'Memory fails; the note persists.' },
             { day: 9, image: 'img/coffee.png', quote: 'Behind every successful person is a substantial amount of coffee.' },
             { day: 10, image: 'img/door.png', quote: 'An opened door doesn\'t mean you must get in, you can take a look and just close it' },
-            { day: 11, image: 'https://placehold.co/150x100/7F11E8/white?text=Day+11', quote: 'Eleven friends you must be.' },
+            { day: 11, image: 'img/pocky.png', quote: 'Remember this game?' },
             { day: 12, image: 'https://placehold.co/150x100/11AEE8/white?text=Day+12', quote: 'Twelve o-clock high.' },
             { day: 13, image: 'https://placehold.co/150x100/11E87F/white?text=Day+13', quote: 'Friday the 13th - a lucky day!' },
             { day: 14, image: 'https://placehold.co/150x100/E87F11/white?text=Day+14', quote: 'Two weeks have passed.' },
