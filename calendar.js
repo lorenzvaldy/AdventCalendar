@@ -36,7 +36,7 @@ class AdventCalendar {
             { day: 12, image: 'img/pen.png', quote: 'When the mind is overloaded, a pen and paper become a spillway; the physical motion of writing pulls the voltage from the thought.' },
             { day: 13, image: 'img/positivitea.png', quote: 'Have a cup of positivitea' },
             { day: 14, image: 'img/candle.png', quote: 'Don\'t curse the darkness, bring your own light.' },
-            { day: 15, image: 'https://placehold.co/150x100/E8112A/white?text=Day+15', quote: 'Fifteen minutes of fame.' },
+            { day: 15, image: 'img/manner.png', quote: 'Manner maketh lady' },
             { day: 16, image: 'https://placehold.co/150x100/E8DA11/white?text=Day+16', quote: 'Sweet 16.' },
             { day: 17, image: 'https://placehold.co/150x100/5211E8/white?text=Day+17', quote: 'Seventeen and four.' },
             { day: 18, image: 'https://placehold.co/150x100/11E8B6/white?text=Day+18', quote: 'Finally 18!' },
