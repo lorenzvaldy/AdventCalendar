@@ -39,7 +39,7 @@ class AdventCalendar {
             { day: 15, image: 'img/manner.png', quote: 'Manner maketh lady' },
             { day: 16, image: 'img/einkauftasche.png', quote: 'Hide in a cave, crumpled-up like a ball, but open me up, I will devour anything and I outlive you' },
             { day: 17, image: 'img/run.png', quote: 'Ini yaa buat larinya makin cepet' },
-            { day: 18, image: 'https://placehold.co/150x100/11E8B6/white?text=Day+18', quote: 'Finally 18!' },
+            { day: 18, image: 'img/antis.png', quote: 'The thing so effective it kills 99.9% of the population, leaving a witness to warn the next generation.' },
             { day: 19, image: 'https://placehold.co/150x100/E8117F/white?text=Day+19', quote: 'Nineteen-hundred...' },
             { day: 20, image: 'https://placehold.co/150x100/7F11E8/white?text=Day+20', quote: 'Twenty percent off.' },
             { day: 21, image: 'https://placehold.co/150x100/11AEE8/white?text=Day+21', quote: 'Twenty-one.' },
