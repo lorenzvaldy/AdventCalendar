@@ -40,7 +40,7 @@ class AdventCalendar {
             { day: 16, image: 'img/einkauftasche.png', quote: 'Hide in a cave, crumpled-up like a ball, but open me up, I will devour anything and I outlive you' },
             { day: 17, image: 'img/run.png', quote: 'Ini yaa buat larinya makin cepet' },
             { day: 18, image: 'img/antis.png', quote: 'The thing so effective it kills 99.9% of the population, leaving a witness to warn the next generation.' },
-            { day: 19, image: 'https://placehold.co/150x100/E8117F/white?text=Day+19', quote: 'Nineteen-hundred...' },
+            { day: 19, image: 'img/nyariapa.mp4', quote: 'nyari apaa kamuu cayanggg' },
             { day: 20, image: 'https://placehold.co/150x100/7F11E8/white?text=Day+20', quote: 'Twenty percent off.' },
             { day: 21, image: 'https://placehold.co/150x100/11AEE8/white?text=Day+21', quote: 'Twenty-one.' },
             { day: 22, image: 'https://placehold.co/150x100/11E87F/white?text=Day+22', quote: 'Twenty-two... two ducks.' },
@@ -82,7 +82,7 @@ class AdventCalendar {
 
         // --- FOR TESTING ---
         // Uncomment to test with a specific date
-        //this.setTestDate(15, 12); // Simulate December 15th
+        this.setTestDate(19, 12); // Simulate December 19th
         // ---------------------
 
         this.updateDateDisplay();
@@ -123,8 +123,22 @@ class AdventCalendar {
         const modalImage = document.getElementById('modalImage');
         const modalQuote = document.getElementById('modalQuote');
 
-        modalImage.src = dayData.image;
-        modalImage.alt = `Surprise Day ${dayData.day}`;
+        const modalVideo = document.getElementById('modalVideo');
+
+        if (dayData.image.endsWith('.mp4')) {
+            modalImage.style.display = 'none';
+            modalVideo.style.display = 'block';
+            modalVideo.src = dayData.image;
+            // Ensure it plays
+            modalVideo.play().catch(e => console.log("Autoplay prevented:", e));
+        } else {
+            modalVideo.style.display = 'none';
+            modalImage.style.display = 'block';
+            modalVideo.pause();
+            modalImage.src = dayData.image;
+            modalImage.alt = `Surprise Day ${dayData.day}`;
+        }
+
         modalQuote.textContent = dayData.quote;
 
         this.modal.classList.add('show');
@@ -134,6 +148,11 @@ class AdventCalendar {
      * Close the modal
      */
     closeModal() {
+        const modalVideo = document.getElementById('modalVideo');
+        if (modalVideo) {
+            modalVideo.pause();
+            modalVideo.currentTime = 0;
+        }
         this.modal.classList.remove('show');
     }
 
@@ -318,3 +337,8 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('🎄 Advent Calendar loaded! Type "resetCalendar()" to reset.');
     console.log('Status:', window.calendar.getStatus());
 });
+
+// Export for testing
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { AdventCalendar };
+}
