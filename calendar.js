@@ -82,7 +82,7 @@ class AdventCalendar {
 
         // --- FOR TESTING ---
         // Uncomment to test with a specific date
-        this.setTestDate(19, 12); // Simulate December 19th
+        // this.setTestDate(19, 12); // Simulate December 19th
         // ---------------------
 
         this.updateDateDisplay();
