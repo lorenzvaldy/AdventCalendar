@@ -41,7 +41,7 @@ class AdventCalendar {
             { day: 17, image: 'img/run.png', quote: 'Ini yaa buat larinya makin cepet' },
             { day: 18, image: 'img/antis.png', quote: 'The thing so effective it kills 99.9% of the population, leaving a witness to warn the next generation.' },
             { day: 19, image: 'img/nyariapa.mp4', quote: 'nyari apaa kamuu cayanggg' },
-            { day: 20, image: 'https://placehold.co/150x100/7F11E8/white?text=Day+20', quote: 'Twenty percent off.' },
+            { day: 20, image: 'img/perahu.png', quote: 'Berakit-rakit ke hulu, Berenang-renang ke tepian. kamu di kereta berjuang dulu, biar bisa sama aku nanti seharian.' },
             { day: 21, image: 'https://placehold.co/150x100/11AEE8/white?text=Day+21', quote: 'Twenty-one.' },
             { day: 22, image: 'https://placehold.co/150x100/11E87F/white?text=Day+22', quote: 'Twenty-two... two ducks.' },
             { day: 23, image: 'https://placehold.co/150x100/E87F11/white?text=Day+23', quote: 'December 23rd, almost there.' },
