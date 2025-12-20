@@ -42,10 +42,10 @@ class AdventCalendar {
             { day: 18, image: 'img/antis.png', quote: 'The thing so effective it kills 99.9% of the population, leaving a witness to warn the next generation.' },
             { day: 19, image: 'img/nyariapa.mp4', quote: 'nyari apaa kamuu cayanggg' },
             { day: 20, image: 'img/perahu.png', quote: 'Berakit-rakit ke hulu, Berenang-renang ke tepian. Kamu di kereta berjuang dulu, biar bisa sama aku nanti seharian.' },
-            { day: 21, image: 'https://placehold.co/150x100/11AEE8/white?text=Day+21', quote: 'Twenty-one.' },
-            { day: 22, image: 'https://placehold.co/150x100/11E87F/white?text=Day+22', quote: 'Twenty-two... two ducks.' },
-            { day: 23, image: 'https://placehold.co/150x100/E87F11/white?text=Day+23', quote: 'December 23rd, almost there.' },
-            { day: 24, image: 'https://placehold.co/150x100/E8112A/white?text=Day+24', quote: 'Merry Christmas!' }
+            { day: 21, image: 'img/movie.png', quote: 'Genuine romance in a movie night is the disciplined synchronization of two individuals surrendering their skepticism to the same curated illusion.' },
+            { day: 22, image: 'img/album.png', quote: 'Proof of every reason to stay, record of every occasion to reminisce' },
+            { day: 23, image: 'img/protect.png', quote: 'Protect what you cherish' },
+            { day: 24, image: 'img/akhirnya.png', quote: 'Akhirnya bisa bareng kamu lagi christmasnyaa' }
         ];
     }
 
